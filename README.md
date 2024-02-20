@@ -1,5 +1,5 @@
 
-**E-commerce Day - 05: User Authentication and Styling**
+## E-commerce Day - 05: User Authentication and Styling
 
 This repository documents the development of Day 5 for our E-commerce application, focusing on user authentication and basic styling.
 
@@ -51,4 +51,3 @@ This repository documents the development of Day 5 for our E-commerce applicatio
 
 - Follow this repository for further development progress throughout the E-commerce Day challenge.
 
-I hope this comprehensive README file effectively summarizes your project and its key features. Feel free to customize it further with screenshots, diagrams, or links to resources if needed.
