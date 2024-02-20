@@ -1,0 +1,77 @@
+
+<%-include('./partials/header')%>
+<%-include('./partials/navbar')%>
+
+  <main>
+
+    <%-include('./flash.ejs')%>
+    
+    <h1>Displaying a particular product</h1>
+
+    
+    <section class="row">
+        <div class="col-6 border">
+          <h2>
+            <%=foundProduct.name%>
+          </h2>
+
+          <img src="<%= foundProduct.img %>" width="600" height="400" alt="" />
+
+          <h2 class="price">
+            <%=foundProduct.price%>
+          </h2>
+
+          <p>
+            <%=foundProduct.desc%>
+          </p>
+        </div>
+
+        <div class="col-6 border">
+          <h1>Rating Form</h1>
+          <form action="/products/<%=foundProduct._id%>/rating" method="POST">
+            <label for="star">Rating</label>
+            <!-- <input type="range" min="0" max="5" name="rating" id="star" /> -->
+            <fieldset class="starability-basic">
+              <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked
+                aria-label="No rating." />
+              <input type="radio" id="first-rate1" name="rating" value="1" />
+              <label for="first-rate1" title="Terrible">1 star</label>
+              <input type="radio" id="first-rate2" name="rating" value="2" />
+              <label for="first-rate2" title="Not good">2 stars</label>
+              <input type="radio" id="first-rate3" name="rating" value="3" />
+              <label for="first-rate3" title="Average">3 stars</label>
+              <input type="radio" id="first-rate4" name="rating" value="4" />
+              <label for="first-rate4" title="Very good">4 stars</label>
+              <input type="radio" id="first-rate5" name="rating" value="5" />
+              <label for="first-rate5" title="Amazing">5 stars</label>
+            </fieldset>
+
+            <br />
+            <label for="textt">Comment</label>
+            <textarea name="comment" id="textt" rows="3"></textarea>
+            <br />
+            <button type="submit">Add Review</button>
+          </form>
+        </div>
+
+        <div>
+          <% for(let review of foundProduct.reviews){ %>
+            <!-- <h2>Rating: <%=review.rating%></h2> -->
+            <h2>Rating</h2>
+            <h2 class="starability-result" data-rating="<%=review.rating%>">
+              Rated: <%=review.rating%> stars
+            </h2>
+            <h5>Comment: <%=review.comment%>
+            </h5>
+            <!-- <h3>Time: <%=review.createdAt%> </h3> -->
+            <% if(review.createdAt){ %>
+              <h6>Time: <%=review.createdAt.toDateString()%>
+              </h6>
+              <% } %>
+                <% } %>
+        </div>
+    </section>
+  </main>
+
+  
+  <%-include('./partials/footer.ejs')%>
